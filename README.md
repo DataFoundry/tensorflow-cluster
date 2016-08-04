@@ -27,13 +27,13 @@ oc create -f runner_fileserver.yml
 contents below are how to use tensorflow cluter:
 
 there are some examples in tensorflow and we can use the examples to try tensowflow.
-1. oc rsh tf-runner-jupyter-643y7(this is pod name)
+1 oc rsh tf-runner-jupyter-643y7(this is pod name)
 
-2. cd /distributed and the cotent below should be seen:
+2 cd /distributed and the cotent below should be seen:
 
 ![](images/stephow2.png)
 
-3. execute the command ./start_tf.sh 2 2 mnist_cnn.py
+3 execute the command ./start_tf.sh 2 2 mnist_cnn.py
 The first parameter gives the number of workers. This can be equal or smaller than the nubmer of workers specified when creating the cluster).
 The second parameter gives the number of parameter servers. This must be the same as the number specified when creating the TensorFlow cluster.
 The third parameter gives the code to be run.
@@ -42,8 +42,8 @@ the process and result should like this:
 
 ![](images/stephowresult.jpg)
 
-4. During this process, the logs are saved in /tmp/dist-mnist-log by default, we need to mkdir /log and cp -r /tmp/dist-mnist-log /log, which ensures that the tensorboard can show the result
+4 During this process, the logs are saved in /tmp/dist-mnist-log by default, we need to mkdir /log and cp -r /tmp/dist-mnist-log /log, which ensures that the tensorboard can show the result
 
-5. login to the router  of tf_tensorboard to check the result
-  ![](images/the last.png)
+5 login to the router  of tf_tensorboard to check the result
+ ![](images/the last.png)
 
