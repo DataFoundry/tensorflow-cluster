@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: tf-runner-board
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: tf-runner-board
+    spec:
+      containers:
+      - name: tf-runner-board
+        image: registry.dataos.io/library/tensorflow:0.8.0
+        imagePullPolicy: Always
+        ports:  
+        - containerPort: 6006
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tf-runner-board
+  labels:
+    name: tf-runner-board
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 6006
+    protocol: TCP
+    targetPort: 6006  
+  selector:
+    name: tf-runner-board

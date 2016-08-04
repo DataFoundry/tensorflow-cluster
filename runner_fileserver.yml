@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: tf-runner-fileserver
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: tf-runner-fileserver
+    spec:
+      containers:
+      - name: tf-runner-fileserver
+        image: registry.dataos.io/library/tensorflow:0.8.0
+        imagePullPolicy: Always
+        ports:  
+        - containerPort: 8000
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tf-runner-fileserver
+  labels:
+    name: tf-runner-fileserver
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8000
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    name: tf-runner-fileserver
