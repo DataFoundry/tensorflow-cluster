@@ -31,3 +31,5 @@ tensorflow集群自带一些示例，我们可以使用这些自带示例来使�
 5 登录tensorflow面板，进入GRAPH标签页下，可以看到上面执行的图表结果，如下图所示：        
  ![](images/the last.png)
 
+也可以参考我们微信公众号有关tensorflow集群的文章：http://mp.weixin.qq.com/s?__biz=MzI2NDMzODQ3MA==&mid=2247483751&idx=1&sn=23f792761a99e7131685e2cc81d0692f&scene=24&srcid=0805rv1vppNUcvgNHdI0X0S9#wechat_redirect
+
